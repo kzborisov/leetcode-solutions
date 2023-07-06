@@ -4,7 +4,16 @@
  * @return {number[]}
  */
 const filter = function (arr, fn) {
-  return arr.filter((el, idx) => fn(el, idx));
+  const result = new Array();
+
+  for (let idx = 0; idx < arr.length; idx++) {
+    if (!fn(arr[idx], idx)) {
+      continue;
+    }
+    result.push(arr[idx]);
+  }
+  return result;
+  // return arr.filter((el, idx) => fn(el, idx));
 };
 
 console.log(
